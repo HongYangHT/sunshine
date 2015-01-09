@@ -1,0 +1,18 @@
+/* box-shadow
+ *@description 
+ * @h-shadow: 水平阴影
+ * @v-shadow: 垂直阴影
+ * @spread: 阴影的尺寸
+ * @color : 阴影的颜色
+ * @rgba : rgba格式颜色
+ * @set : 
+ * value : insert ouset
+*/
+.box-shadow(@insert;@h-shadow;@v-shadow;@spread;@rgba) when (@insert){
+	box-shadow:insert @h-shadow @v-shadow @spread @rgba;
+	-webkit-box-shadow:insert @h-shadow @v-shadow @spread @rgba;
+}
+.box-shadow(@h-shadow;@v-shadow;@spread;@color){
+	box-shadow:@h-shadow @v-shadow @spread @color;
+	-webkit-box-shadow:@h-shadow @v-shadow @spread @color;
+}

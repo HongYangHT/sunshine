@@ -1,0 +1,9 @@
+#过滤.git
+/.git
+#过滤 readme.md
+README.md
+/.settings
+#过滤node plugins
+/node_modules
+#过滤 bin
+#/bin
