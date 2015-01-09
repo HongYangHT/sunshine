@@ -11,7 +11,8 @@ var Gruntfile = function(grunt){
 				option:{ },
 				files: {
 					'public/css/pagination.css':'public/less/pagination.less',
-					'public/css/notify.css':'public/less/notify.less'
+					'public/css/notify.css':'public/less/notify.less',
+					'public/css/index.css':'public/less/index.less'
 				}
 			},
 			compileMain: {
@@ -34,7 +35,8 @@ var Gruntfile = function(grunt){
                 },
                 files : {
                 	'public/css/pagination.min.css':'public/css/pagination.css',
-                	'public/css/notify.min.css':'public/css/notify.css'
+                	'public/css/notify.min.css':'public/css/notify.css',
+                	'public/css/index.min.css':'public/css/index.css'
                 }
             }
 		},

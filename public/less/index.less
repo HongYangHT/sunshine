@@ -1,0 +1,36 @@
+@import "./variables.less";
+
+.v-box{
+	display:table;
+	position:relative;
+	width:100%;
+	height:100%;
+	border:none;
+	padding:@padding-s + 3;
+}
+
+.v-box-top{
+	width:100%;
+	height:64px;
+	line-height:64px;
+	.box-shadow();
+	.navbar-brand{
+		padding:0;
+	}
+	img{
+		height:60px;
+		display:inline-block;
+	}
+	span{
+		display:inline-block;
+	}
+}
+
+.fixed{
+	position:fixed;
+}
+
+.h-box{
+	display:table;
+}
+

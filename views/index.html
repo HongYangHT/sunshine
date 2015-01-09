@@ -1,10 +1,47 @@
 <% include header.html %>
 <!-- add each css -->
+<link type="text/css" rel="stylesheet" href="./css/index.min.css"/>
 </head>
 <body>
-	待续......
-
+	<div class="v-box">
+		<header class="v-box-top fixed container">
+			<a href="/" class="navbar-brand">
+				<img src="./images/logo.png"/>
+				<span class="hidden-xs">Sh</span>
+			</a>
+			<% if(user){ %>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="javascript:;">
+							<i class="fa fa-comment-o"><span class="badge"><%= user.messages.length %></span></i>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img class="img-circle" src="<%= user.imageUrl %>"/>
+							<span class="u-name"><%= user.username %></span>
+							<span class="cart"></span>
+						</a>
+					</li>
+				</ul>
+			<% }else{ %>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="javascript:;">注册</a></li>
+					<li><a href="javascript:;">登陆</a></li>
+				</ul>
+			<% } %>
+		</header>
+		<div class="h-box v-box-bottom">
+			<nav class="h-box-left switch-sidebar">
+				
+			</nav>
+			<div class="h-box-right main-container">
+				
+			</div>
+		</div>
+	</div>
 <% include footer.html %>
 <!-- add each js -->
+
 </body>
 </html>

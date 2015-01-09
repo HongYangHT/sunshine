@@ -1,0 +1,28 @@
+.v-box {
+  display: table;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 8px;
+}
+.v-box-top {
+  height: 64px;
+  line-height: 64px;
+}
+.v-box-top .navbar-brand {
+  padding: 0;
+}
+.v-box-top img {
+  height: 60px;
+  display: inline-block;
+}
+.v-box-top span {
+  display: inline-block;
+}
+.fixed {
+  position: fixed;
+}
+.h-box {
+  display: table;
+}
