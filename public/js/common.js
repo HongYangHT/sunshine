@@ -46,13 +46,13 @@
 			 * 	 @param text
 			 * });
 			 * */
-		},
+		}
 		
 	});
 	
 })(jQuery);
 
-$(function(){
+;(function(){
 	/**
 	 * data
 	 * @param type
