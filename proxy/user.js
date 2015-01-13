@@ -15,23 +15,21 @@ var UserHandle = {};
  * */
 UserHandle.findById = function(_id){
 	User.findById(_id,function(err,doc){
+		var result = {};
 		if(err){
-				return {
-				type:'error',
-				message:'查找出错!'
-			};
+			result.type = 'error';
+			result.message = '查找出错!';
+			return result;
 		}else{
 			if(doc){
-				return {
-					type:'success',
-					message:'查找成功',
-					content:doc
-				};
+				result.type = 'error';
+				result.message = '查找出错!';
+				result.content = doc;
+				return result;
 			}else{
-				return {
-					type:'success',
-					message:'没有该用户'
-				};
+				result.type = 'error';
+				result.message = '没有该用户!';
+				return result;
 			}
 		}
 	});
@@ -43,23 +41,21 @@ UserHandle.findById = function(_id){
  * */
 UserHandle.findOne = function(query){
 	User.findOne(query,function(err,doc){
+		var result = {};
 		if(err){
-				return {
-				type:'error',
-				message:'查找出错!'
-			};
+			result.type = 'error';
+			result.message = '查找出错!';
+			return result;
 		}else{
 			if(doc){
-				return {
-					type:'success',
-					message:'查找成功',
-					content:doc
-				};
+				result.type = 'error';
+				result.message = '查找出错!';
+				result.content = doc;
+				return result;
 			}else{
-				return {
-					type:'success',
-					message:'没有该用户'
-				};
+				result.type = 'error';
+				result.message = '没有该用户!';
+				return result;
 			}
 		}
 	});
@@ -71,23 +67,21 @@ UserHandle.findOne = function(query){
  * */
 UserHandle.find = function(query){
 	User.find(query,function(err,docs){
+		var result = {};
 		if(err){
-				return {
-				type:'error',
-				message:'查找出错!'
-			};
+			result.type = 'error';
+			result.message = '查找出错!';
+			return result;
 		}else{
 			if(doc){
-				return {
-					type:'success',
-					message:'查找成功',
-					content:doc
-				};
+				result.type = 'error';
+				result.message = '查找出错!';
+				result.content = doc;
+				return result;
 			}else{
-				return {
-					type:'success',
-					message:'没有该用户'
-				};
+				result.type = 'error';
+				result.message = '没有该用户!';
+				return result;
 			}
 		}
 	});
@@ -99,23 +93,21 @@ UserHandle.find = function(query){
  * */
 UserHandle.findQuery = function(condition,query){
 	User.find(condition,query,function(err,docs){
+		var result = {};
 		if(err){
-				return {
-				type:'error',
-				message:'查找出错!'
-			};
+			result.type = 'error';
+			result.message = '查找出错!';
+			return result;
 		}else{
 			if(doc){
-				return {
-					type:'success',
-					message:'查找成功',
-					content:doc
-				};
+				result.type = 'error';
+				result.message = '查找出错!';
+				result.content = doc;
+				return result;
 			}else{
-				return {
-					type:'success',
-					message:'没有该用户'
-				};
+				result.type = 'error';
+				result.message = '没有该用户!';
+				return result;
 			}
 		}
 	});
