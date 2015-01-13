@@ -8,7 +8,7 @@
  * @field (String) profile_image_url 头像url
  * @field (Date)   birthDate
  * @field (Date)   signupDate 注册时间
- * 
+ * @field (String) permission 用户权限 001 用户 002 admin 003
  * */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema ,
@@ -21,9 +21,8 @@ var UserSchema = new Schema({
 	gender	  : { type:Number,default:0},//type: 0 表示男,1表示女
 	profile_image_url : {type:String,default:'../images/head-m.gif'},//默认头像
 	birthDate : { type:Date,default:Date.now},//生日
-	signupDate:	{ type:Date,default:Date.now} //注册时间，系统默认
+	signupDate:	{ type:Date,default:Date.now}, //注册时间，系统默认
+	permission: { type:String,default:'000'}
 });
-
-//UserSchema.add({ signupDate:{type:Date,default:Date.now}});
 
 module.exports = mongoose.model('User', UserSchema);
