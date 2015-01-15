@@ -95,6 +95,7 @@
 		language  : 'en',
 		totalPage : 1,
 		ajaxUrl   : '',
+		maxPage   : '5',
 		onSuccess : $.noop
 	};
 	
