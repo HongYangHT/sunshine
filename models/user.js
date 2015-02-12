@@ -26,3 +26,16 @@ var UserSchema = new Schema({
 });
 
 module.exports = mongoose.model('User', UserSchema);
+
+/*
+可以这样，在 ArticleSchema 增加 tags: [{ type: Schema.Types.ObjectId, ref: ‘Tag’ }]
+取数据的时候这样，
+Article.find({}).populate(‘tags’).exec(callback);
+这样就直接可以从tag表中找出对应得tag._id数据，放到查询结果中了。
+
+这里需要注意的是：ref的 Tag 对应的是 mongoose.model('Tag’, TagSchema); 的名称
+
+article.tags.push(); 就可以，和JS数组的操作方式一样。
+操作完以后，article.save(); 一下就保存了
+
+*/
