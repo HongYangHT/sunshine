@@ -53,12 +53,22 @@ CreatorSchema.methods.findContent = function(callback){
 	return this.content;
 };
 
+/*
+ * 通过creator 来查询content
+ * 
+ * */
+
+CreatorSchema.methods.findContentByCreator = function(callback){
+	var contents = CreatorSchema.find({}).populate('content').exec(callback);
+	return contents;
+};
+
 CreatorSchema.methods.getContent = function(options){
-	var content = this.find({receive_id : options.receive_id})
+	var contents = this.find({receive_id : options.receive_id})
 				    .populate('content')
 				    .where('is_read',false)
 				    .exec();
-	return content;
+	return contents;
 };
 
 /**
