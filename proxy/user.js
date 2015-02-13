@@ -22,8 +22,8 @@ UserHandle.findById = function(_id){
 			return result;
 		}else{
 			if(doc){
-				result.type = 'error';
-				result.message = '查找出错!';
+				result.type = 'success';
+				result.message = '查找成功!';
 				result.content = doc;
 				return result;
 			}else{
@@ -48,8 +48,8 @@ UserHandle.findOne = function(query){
 			return result;
 		}else{
 			if(doc){
-				result.type = 'error';
-				result.message = '查找出错!';
+				result.type = 'success';
+				result.message = '查找成功!';
 				result.content = doc;
 				return result;
 			}else{
@@ -74,8 +74,8 @@ UserHandle.find = function(query){
 			return result;
 		}else{
 			if(doc){
-				result.type = 'error';
-				result.message = '查找出错!';
+				result.type = 'success';
+				result.message = '查找成功!';
 				result.content = doc;
 				return result;
 			}else{
@@ -100,8 +100,8 @@ UserHandle.findQuery = function(condition,query){
 			return result;
 		}else{
 			if(doc){
-				result.type = 'error';
-				result.message = '查找出错!';
+				result.type = 'success';
+				result.message = '查找成功!';
 				result.content = doc;
 				return result;
 			}else{

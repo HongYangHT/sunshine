@@ -19,7 +19,7 @@ var CreatorSchema = new Schema({
 	sender_id  : { type:ObjectId, required:true },
 	receiver   : { type:String, required:true },
 	receive_id : { type:ObjectId, required:true },
-	content    : [{ type:Schema.Types.ObjectId, ref:'Content'}]//外键  _id 
+	contents    : [{ type:Schema.Types.ObjectId, ref:'Content'}]//外键  _id 
 });
 
 /* 虚拟属性*/
@@ -47,25 +47,30 @@ CreatorSchema.virtual('sender.full').set(function(receive){
 /* add CreatorSchema methods*/
 /**
  * @params (Function)callback
- * return [content]
+ * return [contents]
  * */
 CreatorSchema.methods.findContent = function(callback){
-	return this.content;
+	return this.contents;
 };
 
 /*
- * 通过creator 来查询content
+ * 通过creator 来查询contents
  * 
  * */
 
-CreatorSchema.methods.findContentByCreator = function(callback){
-	var contents = CreatorSchema.find({}).populate('content').exec(callback);
+CreatorSchema.methods.findContentByCreator = function(sender_id,callback){
+	var contents = CreatorSchema.find({sender_id:sender_id}).populate('contents').exec(callback);
+	return contents;
+};
+
+CreatorSchema.methods.findContentByReceiver = function(receive_id,callback){
+	var contents = CreatorSchema.find({receive_id:receive_id}).populate('contents').exec(callback);
 	return contents;
 };
 
 CreatorSchema.methods.getContent = function(options){
 	var contents = this.find({receive_id : options.receive_id})
-				    .populate('content')
+				    .populate('contents')
 				    .where('is_read',false)
 				    .exec();
 	return contents;
@@ -84,7 +89,7 @@ CreatorSchema.methods.getContent = function(options){
  */
 
 var ContentSchema = new Schema({
-	_creator     : { type:Schema.Types.ObjectId, ref: 'Creator' },//匹配
+//	_creator     : { type:Schema.Types.ObjectId, ref: 'Creator' },//匹配
 	send_time    : { type:String, required:true },
 	send_content : { type:String },
 	is_read      : { type:Boolean, default:false},
