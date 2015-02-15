@@ -4,7 +4,7 @@
  * @description config for grunt less
  * 
  */
-var Gruntfile = function(grunt){
+/*var Gruntfile = function(grunt){
 	grunt.initConfig({
 		less:{
 			compile: {
@@ -56,6 +56,82 @@ var Gruntfile = function(grunt){
 
     grunt.registerTask('default', [ 'less', 'watch' ]);
 
+};*/
+
+var Gruntfile = function(grunt){
+	grunt.initConfig({
+		less:{
+			dev:{
+				files:[{
+					expand : true,
+					cwd : '/less/',
+					src : ['*.less'],
+					dest: '/css/',
+					ext : '.css'
+				}],
+			}
+		},
+		cssmin:{
+			deploy:{
+				files:[{
+					expand : 'true',
+					cwd : '/css/',
+					src : ['*.css'],
+					dest : '/css/',
+					ext : '.min.css'
+				}]
+			}
+		},
+		uglify:{
+			dev:{
+				files:[{
+					expand:true,
+					cwd : '/js/',
+					src : ['*.js'],
+					dest: '/js/',
+					ext : '.min.js'
+				}]
+			}
+		},
+		imagemin : {
+			dev : {
+				files:[{
+					expand:true,
+					cwd:'/images/',
+					src:['*.[png,jpg]'],
+					dest:'/images/'
+				}]
+			}
+		},
+		watch:{
+			less:{
+				files:['/less/*.less'],
+				tasks:['less']
+			},
+			uglify:{
+				files:['/js/*.js'],
+				tasks:['uglify']
+			},
+			cssmin:{
+				files:['/css/*.css'],
+				tasks:['cssmin'],
+			},
+			imagemin:{
+				files:['/images/*.[png,jpg]'],
+				tasks:['imagemin']
+			}
+		}
+	});
+	
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	
+	grunt.resgisterTask('default',['less','cssmin','uglify','watch']);
+	grunt.resgisterTask('gruntAll',['less','cssmin','uglify','imagemin','watch']);
 };
+
 
 module.exports = Gruntfile;
